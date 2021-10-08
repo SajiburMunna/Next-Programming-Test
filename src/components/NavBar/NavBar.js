@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { searchAction } from "../../redux/action.js";
+import { useDispatch } from "react-redux";
 
 function NavBar() {
+  const [searchData, setSearchData] = useState();
+  const dispatch = useDispatch();
+  console.log(searchData);
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -116,17 +122,24 @@ function NavBar() {
               </li>
             </ul>
 
-            <form className="d-flex">
+            <div className="d-flex">
               <input
                 className="form-control me-2"
                 type="search"
+                value={searchData}
+                onChange={(evant) => setSearchData(evant.target.value)}
                 placeholder="Search By Rocket Name"
                 aria-label="Search"
               />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+              {searchData ? (
+                <button
+                  className="btn btn-outline-success"
+                  onClick={() => dispatch(searchAction(), setSearchData(""))}
+                >
+                  Search
+                </button>
+              ) : null}
+            </div>
           </div>
         </div>
       </nav>

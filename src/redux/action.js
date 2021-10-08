@@ -6,3 +6,7 @@ export const getDataAction = () => (dispatch) => {
     .then((response) => response.json())
     .then((json) => dispatch(slice.setData(json)));
 };
+
+export const searchAction = (searchValue) => (dispatch) => {
+  dispatch(slice.searchData(searchValue));
+};
