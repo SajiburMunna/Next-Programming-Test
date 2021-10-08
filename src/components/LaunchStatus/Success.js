@@ -14,7 +14,34 @@ const Success = () => {
   console.log(succesStatus);
   return (
     <div>
-      <h1>Success</h1>
+      <h1 className="text-center"> Success Launch </h1>
+      <div className="d-flex align-content-start flex-wrap justify-content-center">
+        {succesStatus.map((success) => (
+          <div
+            class="card m-3 text-center  shadow p-3 mb-5 bg-body rounded"
+            style={{ width: "18rem" }}
+          >
+            <div class="card-body ">
+              <h5 class="card-title">
+                Flight Number : {success.flight_number}
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                Mission Name : {success?.mission_name}
+              </h6>
+              <p class="card-text">
+                Rocket Name : {success.rocket.rocket_name}{" "}
+              </p>
+              <p class="card-text">
+                Rocket Type : {success.rocket.rocket_type}{" "}
+              </p>
+              <p class="card-text">Launch Year : {success.launch_year} </p>
+              <a href="#" class="card-link">
+                View More Details
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

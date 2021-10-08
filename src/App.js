@@ -8,7 +8,7 @@ import LastYear from "./components/LaunchDate/LastYear";
 import Failure from "./components/LaunchStatus/Failure";
 import Success from "./components/LaunchStatus/Success";
 import YesUpcoming from "./components/Upcoming/YesUpcoming";
-import NoUpcoming from "./components/Upcoming/NoUpcoming";
+
 import HomePage from "./components/HomePage/HomePage";
 
 import SearchRocketName from "./components/SearchRocketName/SearchRocketName";
@@ -25,7 +25,7 @@ function App() {
           <Route exact path="/failure" component={Failure}></Route>
           <Route exact path="/success" component={Success}></Route>
           <Route exact path="/yesupcoming" component={YesUpcoming}></Route>
-          <Route exact path="/noupcoming" component={NoUpcoming}></Route>
+
           <Route exact path="/search" component={SearchRocketName}></Route>
         </Switch>
       </Router>

@@ -1,10 +1,11 @@
 import { dataStoreSlice } from "./slice";
+import axios from "axios";
 const { actions: slice } = dataStoreSlice;
 
 export const getDataAction = () => (dispatch) => {
-  fetch("https://api.spacexdata.com/v3/launches")
-    .then((response) => response.json())
-    .then((json) => dispatch(slice.setData(json)));
+  axios
+    .get("https://api.spacexdata.com/v3/launches")
+    .then((response) => dispatch(slice.setData(response.data)));
 };
 
 export const searchAction = (searchValue) => (dispatch) => {

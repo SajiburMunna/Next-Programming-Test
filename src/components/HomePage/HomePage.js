@@ -7,7 +7,6 @@ const HomePage = () => {
   const Data = useSelector((state) => state.Alldata);
   console.log(Data.data);
 
-  const [items, setItems] = useState(Data.data);
   const [visible, setVisible] = useState(12);
 
   const showMoreItems = () => {

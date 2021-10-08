@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { searchAction } from "../../redux/action.js";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function NavBar() {
   const [searchData, setSearchData] = useState();
   const dispatch = useDispatch();
   console.log(searchData);
+  const history = useHistory();
+
+  const goTo = (goto) => {
+    history.push(goto);
+  };
 
   return (
     <div>
@@ -31,6 +37,11 @@ function NavBar() {
               <li className="nav-item">
                 <Link className=" nav-link active" to="/">
                   HOME
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className=" nav-link active" to="/yesupcoming">
+                  Upcoming
                 </Link>
               </li>
 
@@ -93,33 +104,6 @@ function NavBar() {
                   </li>
                 </ul>
               </li>
-              <li className="nav-item dropdown">
-                <span
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Upcoming
-                </span>
-                <ul
-                  className="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <li>
-                    <Link className="dropdown-item" to="/yesupcoming">
-                      YES Upcoming
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/noupcoming">
-                      NO Upcoming
-                    </Link>
-                  </li>
-                </ul>
-              </li>
             </ul>
 
             <div className="d-flex">
@@ -134,7 +118,13 @@ function NavBar() {
               {searchData ? (
                 <button
                   className="btn btn-outline-success"
-                  onClick={() => dispatch(searchAction(), setSearchData(""))}
+                  onClick={() =>
+                    dispatch(
+                      searchAction(searchData),
+                      setSearchData(""),
+                      goTo("/search")
+                    )
+                  }
                 >
                   Search
                 </button>
