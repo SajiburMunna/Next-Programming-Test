@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 function NavBar() {
   const [searchData, setSearchData] = useState();
   const dispatch = useDispatch();
-  console.log(searchData);
+
   const history = useHistory();
 
   const goTo = (goto) => {
@@ -16,24 +16,15 @@ function NavBar() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav
+        data-testid="navBar-test-1"
+        className="navbar navbar-expand-lg navbar-light bg-light"
+      >
         <div className="container-fluid">
-          <a className="navbar-brand" href="##">
-            Navbar
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+          <h1 className="navbar-brand">TECHNEXT</h1>
+
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav me-auto mb-2  ">
               <li className="nav-item">
                 <Link className=" nav-link active" to="/">
                   HOME
@@ -41,7 +32,7 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <Link className=" nav-link active" to="/yesupcoming">
-                  Upcoming
+                  UPCOMING
                 </Link>
               </li>
 

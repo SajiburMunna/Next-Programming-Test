@@ -25,7 +25,9 @@ const LastMonth = () => {
 
   return (
     <div>
-      <h1 className="text-center">Last Month</h1>
+      <h1 data-testid="lastMonth-test-1" className="text-center">
+        Last Month Launch
+      </h1>
       {LastMonth.length > 0 ? (
         <div className="d-flex align-content-start flex-wrap justify-content-center">
           {LastMonth.map((lastmonth) => (
@@ -50,9 +52,6 @@ const LastMonth = () => {
                 <p className="card-text">
                   Launch Year : {lastmonth.launch_year}{" "}
                 </p>
-                <a href="#" class="card-link">
-                  View More Details
-                </a>
               </div>
             </div>
           ))}

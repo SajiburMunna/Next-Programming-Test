@@ -5,7 +5,7 @@ import { getDataAction } from "../../redux/action";
 const Success = () => {
   const dispatch = useDispatch();
   const Data = useSelector((state) => state.Alldata);
-  // console.log(Data.data);
+
   useEffect(() => {
     dispatch(getDataAction());
   }, []);
@@ -14,30 +14,31 @@ const Success = () => {
   console.log(succesStatus);
   return (
     <div>
-      <h1 className="text-center"> Success Launch </h1>
+      <h1 data-testid="success-test-1" className="text-center">
+        {" "}
+        Success Launch{" "}
+      </h1>
       <div className="d-flex align-content-start flex-wrap justify-content-center">
         {succesStatus.map((success) => (
           <div
-            class="card m-3 text-center  shadow p-3 mb-5 bg-body rounded"
+            key={Math.random()}
+            className="card m-3 text-center  shadow p-3 mb-5 bg-body rounded"
             style={{ width: "18rem" }}
           >
-            <div class="card-body ">
-              <h5 class="card-title">
+            <div className="card-body ">
+              <h5 className="card-title">
                 Flight Number : {success.flight_number}
               </h5>
-              <h6 class="card-subtitle mb-2 text-muted">
+              <h6 className="card-subtitle mb-2 text-muted">
                 Mission Name : {success?.mission_name}
               </h6>
-              <p class="card-text">
+              <p className="card-text">
                 Rocket Name : {success.rocket.rocket_name}{" "}
               </p>
-              <p class="card-text">
+              <p className="card-text">
                 Rocket Type : {success.rocket.rocket_type}{" "}
               </p>
-              <p class="card-text">Launch Year : {success.launch_year} </p>
-              <a href="#" class="card-link">
-                View More Details
-              </a>
+              <p className="card-text">Launch Year : {success.launch_year} </p>
             </div>
           </div>
         ))}

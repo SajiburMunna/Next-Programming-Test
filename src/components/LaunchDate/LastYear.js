@@ -9,10 +9,8 @@ const LastYear = () => {
   useEffect(() => {
     dispatch(getDataAction());
   }, []);
-  const currentYear = new Date().getFullYear(); // 2020
-
+  const currentYear = new Date().getFullYear();
   const previousYear = currentYear - 1;
-
   console.log(previousYear);
   const LastYear = Data.data.filter(
     (s) => s.launch_year === previousYear.toString()
@@ -20,7 +18,9 @@ const LastYear = () => {
   console.log(LastYear);
   return (
     <div>
-      <h1 className="text-center">Last Year Launch</h1>
+      <h1 data-testid="lastYear-test-1" className="text-center">
+        Last Year Launch
+      </h1>
       <div className="d-flex align-content-start flex-wrap justify-content-center">
         {LastYear.map((lastyear) => (
           <div
@@ -42,9 +42,6 @@ const LastYear = () => {
                 Rocket Type : {lastyear.rocket.rocket_type}{" "}
               </p>
               <p className="card-text">Launch Year : {lastyear.launch_year} </p>
-              <a href="#" class="card-link">
-                View More Details
-              </a>
             </div>
           </div>
         ))}
