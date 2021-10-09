@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-
 import NavBar from "./components/NavBar/NavBar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LastMonth from "./components/LaunchDate/LastMonth";
@@ -25,7 +24,6 @@ function App() {
             <Route exact path="/failure" component={Failure}></Route>
             <Route exact path="/success" component={Success}></Route>
             <Route exact path="/yesupcoming" component={YesUpcoming}></Route>
-
             <Route exact path="/search" component={SearchRocketName}></Route>
           </Switch>
         </Suspense>

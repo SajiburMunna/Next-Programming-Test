@@ -11,27 +11,23 @@ const LastWeek = () => {
     dispatch(getDataAction());
   }, []);
 
-  const x = [];
+  const dateArray = [];
   const lastweek_lastDay = moment()
     .subtract(1, "weeks")
     .endOf("week")
     .format("YYYY-MM-DD");
-  x.push(lastweek_lastDay);
+  dateArray.push(lastweek_lastDay);
   for (let i = 1; i < 7; i++) {
-    const b = moment()
+    const lastdates = moment()
       .subtract(i, "days")
       .subtract(1, "week")
       .format("YYYY-MM-DD");
-    x.push(b);
+    dateArray.push(lastdates);
   }
 
-  console.log(x);
-
   const LastWeekDate = Data.data.filter((l) =>
-    l.launch_date_local.includes(x.forEach((item) => item.toString()))
+    l.launch_date_local.includes(dateArray.forEach((item) => item.toString()))
   );
-
-  console.log(LastWeekDate);
 
   return (
     <div>

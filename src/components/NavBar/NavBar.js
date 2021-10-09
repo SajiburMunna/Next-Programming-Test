@@ -7,7 +7,6 @@ import { useHistory } from "react-router-dom";
 function NavBar() {
   const [searchData, setSearchData] = useState();
   const dispatch = useDispatch();
-
   const history = useHistory();
 
   const goTo = (goto) => {

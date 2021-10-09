@@ -54,7 +54,6 @@ const HomePage = () => {
           type="button"
           onClick={showMoreItems}
         >
-          {" "}
           Load More
         </button>
       ) : null}

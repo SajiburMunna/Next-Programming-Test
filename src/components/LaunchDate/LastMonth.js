@@ -10,18 +10,18 @@ const LastMonth = () => {
     dispatch(getDataAction());
   }, []);
 
-  const d = new Date();
-  const n = d.getMonth();
-  const m = n.toString();
+  const newDate = new Date();
+  const month = newDate.getMonth();
+  const monthString = month.toString();
 
   const y = new Date();
   const fy = y.getFullYear();
   const ff = fy.toString();
-
   const LastMonth = Data.data.filter((s) =>
-    s.launch_date_local.includes(`${ff}-${m <= 9 ? 0 : null}${m}`)
+    s.launch_date_local.includes(
+      `${ff}-${monthString <= 9 ? 0 : null}${monthString}`
+    )
   );
-  console.log(LastMonth);
 
   return (
     <div>
