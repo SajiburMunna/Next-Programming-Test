@@ -5,7 +5,7 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "./../../store/store";
 
-test("render Failure", () => {
+test("render LastWeek", () => {
   render(
     <Provider store={store}>
       <LastWeek />

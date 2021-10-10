@@ -16,10 +16,10 @@ const LastMonth = () => {
 
   const y = new Date();
   const fy = y.getFullYear();
-  const ff = fy.toString();
+  const fullYearToString = fy.toString();
   const LastMonth = Data.data.filter((s) =>
     s.launch_date_local.includes(
-      `${ff}-${monthString <= 9 ? 0 : null}${monthString}`
+      `${fullYearToString}-${monthString <= 9 ? 0 : null}${monthString}`
     )
   );
 
